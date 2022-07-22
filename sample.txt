@@ -1,0 +1,1 @@
+sample phrase to be encrypted
