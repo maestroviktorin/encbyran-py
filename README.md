@@ -1,4 +1,4 @@
-# Encryption by Random
+# :game_die::closed_lock_with_key:Encryption by Random
 `Developed at ViktorInTech`
 ## Whitepaper
 ***
