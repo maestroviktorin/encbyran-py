@@ -1,4 +1,4 @@
-from actions_for_encryption import *
+from actions import *
 
 
 def decryptograph(file_name: str, decryptor_file_name: str) -> object:
@@ -6,9 +6,9 @@ def decryptograph(file_name: str, decryptor_file_name: str) -> object:
     :param file_name: Name of the file to be decrypted according to unique standards
     :param decryptor_file_name: Name of the file with decryption keys
 
-    :rtype: The file decrypted using the provided keys
+    :return: The file decrypted using the provided keys
     """
-    with open(file_name, 'rt', encoding='utf-8') as encrypted, open(decryptor_file_name, 'rt', encoding='utf-8') as decryptor, open("decrypted.txt", 'w+', encoding='utf-8') as decrypted:
+    with open(file_name, 'rt', encoding='utf-8') as encrypted, open(decryptor_file_name, 'rt', encoding='utf-8') as decryptor, open(f"decrypted_{file_name.rstrip('.txt').lstrip('encrypted_')}.txt", 'w+', encoding='utf-8') as decrypted:
         encrypted_text = list(map(lambda x: x.strip(), encrypted.readlines()))
         decryptor_keys = [list(map(int, i)) for i in [y.strip().split() for y in decryptor.readlines()]]
 
@@ -28,6 +28,7 @@ def decryptograph(file_name: str, decryptor_file_name: str) -> object:
 
 
 if __name__ == '__main__':
-    decryptograph('encrypted.txt', 'decryptor.txt')
+    help(decryptograph)
+    decryptograph('encrypted_sample.txt', 'decryptor_for_sample.txt')
 else:
-    print('Module is not a library by default')
+    print('Module "decryptograph.py" is not a library by default')

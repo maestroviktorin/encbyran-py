@@ -1,14 +1,14 @@
 from random import randint, choice
 from string import punctuation
 
-from actions_for_encryption import *
+from actions import *
 
 
 def cleared(word: str) -> str:
     """
-    :param word: Takes in a word.
+    :param word: The word that needs to be cleared of punctuation characters at the edges
 
-    :return: Word without punctuation-symbols at the edges.
+    :return: Word without punctuation characters at the edges
     """
     for sym in (word[0], word[-1]):
         if sym in punctuation:
@@ -24,8 +24,8 @@ def cryptograph(file_name: str) -> object:
     1) Encrypted text in the format .txt with one encrypted word on each line;
     2) Decryptor with keys that can be used in Decryptograph function ONLY for received encrypted file
     """
-    with open(file_name, 'rt', encoding="utf-8") as file, open("encrypted.txt", 'w+', encoding="utf-8") as result, open(
-            "decryptor.txt", 'w+', encoding="utf-8") as decryptor:
+    with open(file_name, 'rt', encoding="utf-8") as file, open(f"encrypted_{file_name.strip('.txt')}.txt", 'w+', encoding="utf-8") as result, open(
+            f"decryptor_for_{file_name.strip('.txt')}.txt", 'w+', encoding="utf-8") as decryptor:
 
         origin_text: list[str] = list(map(lambda x: cleared(x), file.read().lower().split()))
 
@@ -42,6 +42,7 @@ def cryptograph(file_name: str) -> object:
 
 
 if __name__ == '__main__':
+    help(cryptograph)
     cryptograph('sample.txt')
 else:
-    print('Module is not a library by default')
+    print('Module "cryptograph.py" is not a library by default')
