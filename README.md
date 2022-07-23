@@ -46,7 +46,7 @@ In the resulting decrypted file all words are translated to lowercase and writte
 > **It is best if *[YOUR FILE TO BE DECRYPTED]* and *[DECRYPTOR FOR YOUR FILE]* are located in the same directory with `decryptograph.py`**
 ***
 ### Actions
-**This file is NECESSARY for the operation of the two programs presented above**
+**This file is NECESSARY for the execution of the two programs presented above**
 
 It contains default special words used in the en/decryption algorithm  
 You can reconfigure this at your discretion
