@@ -6,7 +6,7 @@
 The presented open source software is used to encrypt text files by the special method
 
 The encryption method is based on the Caesar Cipher  
-The program code reads the words from the file, removes them from punctuation characters at the edges and then
+The program code reads the words from the file, rid them from punctuation characters at the edges and then
 represents each letter of the word in the following format:
 
 `{special word}{randomly changed ASCII-number of the letter}`
