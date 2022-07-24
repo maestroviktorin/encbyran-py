@@ -51,7 +51,7 @@ In the resulting decrypted file all words are translated to lowercase and writte
 It contains default special words used in the en/decryption algorithm  
 You can reconfigure this at your discretion
 
-**Please note:**
+**Bear in mind:**
 * The encryption algorithm will not work without a file with special words
 * If you changed the configuration of special words for encryption, then the decryption algorithm of the received file
 will work correctly only with this configuration
