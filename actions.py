@@ -1,5 +1,5 @@
 """
-These are technical lists of words necessary for the execution of the encrypting and decrypting.
+These are technical lists of special words necessary for the execution of the encrypting and decrypting.
 You can edit the lists for more secure encryption.
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
