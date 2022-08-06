@@ -2,9 +2,7 @@
 These are technical lists of special words necessary for the execution of the encrypting and decrypting.
 You can edit the lists for more secure encryption.
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! PAY ATTENTION: The lists can contain words or letter combinations of ONLY 4 characters !!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+The lists can contain words or letter combinations of ONLY 4 characters.
 """
 
 action_plus = ['skin', 'when', 'bull', 'sorb', 'rock', 'cake', 'home', 'bush', 'back', 'fire']  # default config

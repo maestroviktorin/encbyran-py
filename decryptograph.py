@@ -9,7 +9,7 @@ def decryptograph(file_name: str, decryptor_file_name: str) -> object:
     :return: The file decrypted using the provided keys
     """
     with open(file_name, 'rt', encoding='utf-8') as encrypted, open(decryptor_file_name, 'rt', encoding='utf-8') as decryptor, open(f"decrypted_{file_name.rstrip('.txt').lstrip('encrypted_')}.txt", 'w+', encoding='utf-8') as decrypted:
-        encrypted_text = list(map(lambda x: x.strip(), encrypted.readlines()))
+        encrypted_text = list(map(lambda line: line.strip(), encrypted.readlines()))
         decryptor_keys = [list(map(int, i)) for i in [y.strip().split() for y in decryptor.readlines()]]
 
         encrypted_words = []
