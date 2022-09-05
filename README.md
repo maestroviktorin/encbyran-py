@@ -18,8 +18,8 @@ represents each letter of the word in the following format:
 In the resulting encrypted file, each word is written in one line.
 
 The function has two flags:
-- to_lower — converts each letter of each word to lowercase.
-- rmpunctuation — removes punctuation characters on the edges of each word.
+- `to_lower` — converts each letter of each word to lowercase.
+- `rmpunctuation` — removes punctuation characters on the edges of each word.
 
 ***The program also creates a special decryption key, applicable *ONLY* to the received file.***  
 ***You should save it for the possibility to decrypt the received file in the future.***
