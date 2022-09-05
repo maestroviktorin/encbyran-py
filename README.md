@@ -33,7 +33,7 @@ The function has two flags:
 >    cryptograph('[PATH TO YOUR FILE TO BE ENCRYPTED]', rmpunctuation=False)
 > ...
 > ```
-> **It is best if *[PATH TO YOUR FILE TO BE ENCRYPTED]* is located in the same directory with `cryptograph.py`**
+> **It is best if *[PATH TO YOUR FILE TO BE ENCRYPTED]* is located in the same directory with `cryptograph.py`.**
 ***
 ### Decryptograph
 This is a software for decrypting a file encrypted using the utility shown above.
