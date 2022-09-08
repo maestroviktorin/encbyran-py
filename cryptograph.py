@@ -16,11 +16,12 @@ def cleared(word: str) -> str:
     return word
 
 
-def cryptograph(file_name: str, to_lower: bool = False, rmpunctuation: bool = True) -> object:
+def cryptograph(file_name: str, to_lower: bool = False, rmpunctuation: bool = True, shift: tuple = (1, 200)) -> None:
     """
     :param file_name: Name of the file to be encrypted.
     :param to_lower: The need to convert uppercase letters to lowercase.
     :param rmpunctuation: The need to remove punctuation characters on the edges of the words.
+    :param shift: Tuple of 2 integers with the range of random shift of ASCII-numbers.
 
     :return: Creates 2 files in the current directory:
     1) Encrypted text in the format .txt with one encrypted word on each line;
@@ -38,9 +39,16 @@ def cryptograph(file_name: str, to_lower: bool = False, rmpunctuation: bool = Tr
         if rmpunctuation:
             origin_text = list(map(lambda x: cleared(x), origin_text))
 
+        minshift, maxshift = shift
+        try:
+            randint(minshift, maxshift)
+        except ValueError:
+            print("Invalid minshift and maxshift values were passed. They are reset to the default values 1 and 200 respectively.")
+            minshift, maxshift = 1, 200
+
         for word in origin_text:
             for symbol in word:
-                key, action = randint(1, 200), randint(0, 1)
+                key, action = randint(minshift, maxshift), randint(0, 1)
                 decryptor.write(str(key) + ' ')
                 if action:
                     result.write(choice(action_plus) + str(ord(symbol) + key) + ' ')
