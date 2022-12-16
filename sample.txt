@@ -1,1 +1,1 @@
-This is a sample phrase to be encrypted!
+Hi there, I am a sample of the phrase to be encrypted!

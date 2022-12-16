@@ -1,13 +1,14 @@
-"""
-These are technical lists of special words necessary for the execution of the encrypting and decrypting.
-You can edit the lists for more secure encryption.
-
-The lists can contain words or letter combinations of ONLY 4 characters.
+# TODO: Update the docstring.
 """
 
-action_plus = ['skin', 'when', 'bull', 'sorb', 'rock', 'cake', 'home', 'bush', 'back', 'fire']  # default config
-action_minus = ['bath', 'fish', 'deer', 'feel', 'hurt', 'mark', 'cold', 'unit', 'buck', 'coal']  # default config
+"""
 
-# Insurance against extra characters
-action_plus = list(map(lambda x: x[:4], action_plus))
-action_minus = list(map(lambda x: x[:4], action_minus))
+from string import ascii_letters
+from random import choice, randint
+
+from config import length, amount_of_words
+
+action_plus = {''.join(word) for word in (tuple(choice(ascii_letters) for _ in range(randint(*length))) for _ in range(amount_of_words))}
+action_minus = {''.join(word) for word in (tuple(choice(ascii_letters) for _ in range(randint(*length))) for _ in range(amount_of_words))}
+
+action_plus, action_minus = tuple(action_plus - action_minus), tuple(action_minus - action_plus)

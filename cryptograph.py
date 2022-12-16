@@ -1,50 +1,41 @@
-from random import randint, choice
-from string import punctuation
-
 from actions import *
+from cleared import cleared
 
 
-def cleared(word: str) -> str:
+def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bool = True,
+                shift: tuple = (1, 200)) -> None:
     """
-    :param word: The word that needs to be cleared of punctuation characters at the edges.
-
-    :return: Word without punctuation characters at the edges.
-    """
-    for sym in (word[0], word[-1]):
-        if sym in punctuation:
-            word = word.replace(sym, '')
-    return word
-
-
-def cryptograph(file_name: str, to_lower: bool = False, rmpunctuation: bool = True, shift: tuple = (1, 200)) -> None:
-    """
-    :param file_name: Name of the file to be encrypted.
+    :param file_to_encrypt: Name of (path to) the file to be encrypted.
     :param to_lower: The need to convert uppercase letters to lowercase.
-    :param rmpunctuation: The need to remove punctuation characters on the edges of the words.
+    :param rm_punctuation: The need to remove punctuation characters on the edges of the words.
     :param shift: Tuple of 2 integers with the range of random shift of ASCII-numbers.
 
     :return: Creates 2 files in the current directory:
-    1) Encrypted text in the format .txt with one encrypted word on each line;
+    1) Encrypted text in the .txt format with one encrypted word on each line;
     2) Decryptor with keys that can be used in Decryptograph function ONLY for received encrypted file.
     """
-    with open(file_name, 'rt', encoding="utf-8") as file, open(f"encrypted-{file_name.strip('.txt')}.txt", 'w+', encoding="utf-8") as result, open(
-            f"decryptor-for-{file_name.strip('.txt')}.txt", 'w+', encoding="utf-8") as decryptor:
+    with open(file_to_encrypt, 'rt', encoding="utf-8") as file, open(f"encrypted-{file_to_encrypt.strip('.txt')}.txt",
+                                                                     'w+', encoding="utf-8") as result, \
+            open(f"decryptor-for-{file_to_encrypt.strip('.txt')}.txt", 'w+', encoding="utf-8") as decryptor:
 
-        # origin_text: list[str] = list(map(lambda x: cleared(x), file.read().lower().split()))
         origin_text: list[str] = file.read().split()
 
         if to_lower:
-            origin_text = list(map(lambda x: x.lower(), origin_text))
+            origin_text = list(map(lambda line: line.lower(), origin_text))
 
-        if rmpunctuation:
-            origin_text = list(map(lambda x: cleared(x), origin_text))
+        if rm_punctuation:
+            origin_text = list(map(lambda word_to_clear: cleared(word_to_clear), origin_text))
 
         minshift, maxshift = shift
         try:
             randint(minshift, maxshift)
         except ValueError:
-            print("Invalid minshift and maxshift values were passed. They are reset to the default values 1 and 200 respectively.")
+            print(
+                "Invalid `minshift` and `maxshift` values were passed. They are reset to the default values 1 and 200 respectively."
+            )
             minshift, maxshift = 1, 200
+
+        decryptor.write(f"{action_plus}\n{action_minus}\n")
 
         for word in origin_text:
             for symbol in word:
@@ -60,6 +51,6 @@ def cryptograph(file_name: str, to_lower: bool = False, rmpunctuation: bool = Tr
 
 if __name__ == '__main__':
     help(cryptograph)
-    cryptograph('sample.txt', rmpunctuation=False)
+    cryptograph('sample.txt', rm_punctuation=True)
 else:
     print('Module "cryptograph.py" is not a library by default')
