@@ -10,6 +10,10 @@ The program code reads the words from the file and represents each letter of the
 
 `{special leter combination}{randomly changed ASCII-number of the letter}`
 
+**Make sure you have installed Python 3.10 or higher, and then you can watch this guide.**
+
+[<img src=".\assets\thumbnail.jpg" title="Guide on YouTube" width="250"/>](https://www.youtube.com/watch?v=gHZ-ZxnX0ZM)
+
 ## Usage
 A user is supposed to interact with two files:
 * `config.py`
