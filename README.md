@@ -1,7 +1,7 @@
 # :game_die::closed_lock_with_key:Encryption by Random
 `Developed at ViktorInTech`
 
-[<img height="35" src=".\media\telegram.png" title="Telegram Channel" width="35"/>](https://viktorintech.t.me)
+[<img height="35" src=".\assets\telegram.png" title="Telegram Channel" width="35"/>](https://viktorintech.t.me)
 
 
 ## Guide

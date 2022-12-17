@@ -1,5 +1,5 @@
-from actions import *
-from cleared import cleared
+from .actions import *
+from .cleared import cleared
 
 
 def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bool = True,
@@ -47,10 +47,3 @@ def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bo
                     result.write(choice(action_minus) + str(ord(symbol) - key) + ' ')
             result.write('\n')
             decryptor.write('\n')
-
-
-if __name__ == '__main__':
-    help(cryptograph)
-    cryptograph('sample.txt', rm_punctuation=True)
-else:
-    print('Module "cryptograph.py" is not a library by default')

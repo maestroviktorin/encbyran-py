@@ -28,10 +28,3 @@ def decryptograph(file_to_decrypt: str, decryptor: str) -> object:
                 elif encrypted_words[word][symbol][0] in action_minus:
                     decrypted.write(chr(int(encrypted_words[word][symbol][1]) + decryptor_keys[word][symbol]))
             decrypted.write(' ')
-
-
-if __name__ == '__main__':
-    help(decryptograph)
-    decryptograph('encrypted-sample.txt', 'decryptor-for-sample.txt')
-else:
-    print('Module "decryptograph.py" is not a library by default')

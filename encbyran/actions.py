@@ -1,6 +1,6 @@
-# TODO: Update the docstring.
 """
-
+These are technical lists of random letter combinations
+that define `plus` or `minus` operation applied to the ASCII letter number.
 """
 
 from string import ascii_letters
