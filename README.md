@@ -1,69 +1,39 @@
 # :game_die::closed_lock_with_key:Encryption by Random
-`Developed at ViktorInTech`
+`Developed by ViktorInTech`
 
 [<img height="35" src=".\assets\telegram.png" title="Telegram Channel" width="35"/>](https://viktorintech.t.me)
 
-
-## Guide
-***
-### Cryptograph
-The presented open source software is used to encrypt text files by the special method.
+The presented open source software is used to encrypt and decrypt text files using the special method.
 
 The encryption method is based on the Caesar Cipher.  
-The program code reads the words from the file and
-represents each letter of the word in the following format:
+The program code reads the words from the file and represents each letter of the word in the following format:
 
-`{special word}{randomly changed ASCII-number of the letter}`
+`{special leter combination}{randomly changed ASCII-number of the letter}`
 
-In the resulting encrypted file, each word is written in one line.
+## Usage
+A user is supposed to interact with two files:
+* `config.py`
+* `main.py`
 
-Configuration:
-- `to_lower` — converts each letter of each word to lowercase. `False` by default.
-- `rmpunctuation` — removes punctuation characters on the edges of each word. `True` by default.
-- `shift` —  the range of minimum and maximum random shift of ASCII-numbers. `(1, 200)` by default.
+In `config.py` you can configure all the parameters of the program.
 
-***The program also creates a special decryption key, applicable *ONLY* to the received file.***  
-***You should save it for the possibility to decrypt the received file in the future.***
+Most of the parameters are set by default, you need to configure the following ones:
+* `mode` - `0` is `Encryption mode`, `1` is `Decryption mode`.
+* `file_to_encrypt` - name of (path to) the file you are going to encrypt.
+* `file_to_decrypt` - name of (path to) the file you are going to decrypt.
+* `decryptor` - name of (path to) the file that is decryptor to the file you are going to decrypt.
 
-> Don't forget to change this part of the code:
-> 
-> ```python
-> ...
-> if __name__ == '__main__':
->    help(cryptograph)
->    cryptograph('[PATH TO YOUR FILE TO BE ENCRYPTED]', rmpunctuation=False)
-> ...
-> ```
-> **It is best if *[PATH TO YOUR FILE TO BE ENCRYPTED]* is located in the same directory with `cryptograph.py`.**
+You can configure other parameters if you want, but it is unnecessary.
+
+**Keep in mind that it is easier if all the files are located in the same directory with `config.py` and `main.py`.**
+
+Steps:
+1. Adjust these parameters in `config.py` as you need or leave them undefined if there is not, for example, a file to decrypt.
+2. Head to `main.py` and run it.
+3. Check received files and save them in an incredibly safe place!
+
 ***
-### Decryptograph
-This is a software for decrypting a file encrypted using the utility shown above.
-
-The program takes in the encrypted file and decryptor file to it.
-
-In the resulting decrypted file all words are translated to lowercase and written in one line.
-
-> Don't forget to change this part of the code:
-> 
-> ```python
-> ...
-> if __name__ == '__main__':
->    help(decryptograph)
->    decryptograph('[PATH TO YOUR FILE TO BE DECRYPTED], [PATH TO DECRYPTOR FOR YOUR FILE]')
-> ...
-> ```
-> **It is best if *[PATH TO YOUR FILE TO BE DECRYPTED]* and *[PATH TO DECRYPTOR FOR YOUR FILE]* are located in the same directory with `decryptograph.py`.**
+All details for further maintenance and modernization of the code,  
+as far as possible, are provided in the `__doc__` of functions and modules.
 ***
-### Actions
-**This file is NECESSARY for the execution of the two programs presented above.**
-
-It contains default special words used in the en/decryption algorithm.  
-You can reconfigure this at your discretion.
-
-**Bear in mind:**
-* The encryption algorithm will not work without a file with special words.
-* If you have changed the configuration of special words for encryption, then the decryption algorithm of the received file
-will work correctly only with this configuration.
-***
-*If you have ideas for improving the code (and someone will definitely have them),*  
-*be sure to write them in the `Issues` section on the **[project's GitHub](https://github.com/ViktorInTech/encrypting_by_random).***
+If you have any proposals or questions, be sure to ping [manager](https://github.com/maestroviktorin).

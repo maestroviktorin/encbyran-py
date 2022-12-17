@@ -1,7 +1,7 @@
 import re
 
 
-def decryptograph(file_to_decrypt: str, decryptor: str) -> object:
+def decryptograph(file_to_decrypt: str, decryptor: str) -> None:
     """
     :param file_to_decrypt: Name of (path to) the file to be decrypted according to unique standards.
     :param decryptor: Name of (path to) the file with decryption keys.
@@ -15,7 +15,7 @@ def decryptograph(file_to_decrypt: str, decryptor: str) -> object:
         action_minus = eval(decryptor.readline())
         decryptor_keys = tuple(tuple(map(int, n)) for n in [line.strip().split() for line in decryptor.readlines()])
 
-        encrypted_words = []
+        encrypted_words: list[list[tuple[str, str]]] = []
         for word in encrypted_text:
             encrypted_words.append([])
             for symbol in word.split():

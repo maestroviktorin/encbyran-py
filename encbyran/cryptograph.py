@@ -2,8 +2,8 @@ from .actions import *
 from .cleared import cleared
 
 
-def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bool = True,
-                shift: tuple = (1, 200)) -> None:
+def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bool = False,
+                shift: tuple[int, int] = (1, 200)) -> None:
     """
     :param file_to_encrypt: Name of (path to) the file to be encrypted.
     :param to_lower: The need to convert uppercase letters to lowercase.
