@@ -132,4 +132,8 @@ dmypy.json
 /venv
 /.idea
 /__pycache__
+.vscode/
+decrypted*
+decryptor*
+encrypted*
 >>>>>>> 277a4ad (initialization)

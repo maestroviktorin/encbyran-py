@@ -10,7 +10,7 @@ def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bo
     :param rm_punctuation: The need to remove punctuation characters on the edges of the words.
     :param shift: Tuple of 2 integers with the range of random shift of ASCII-numbers.
 
-    :return: Creates 2 files in the current directory:
+    Creates 2 files in the current directory:
     1) Encrypted text in the .txt format with one encrypted word on each line;
     2) Decryptor with keys that can be used in Decryptograph function ONLY for received encrypted file.
     """
@@ -26,20 +26,20 @@ def cryptograph(file_to_encrypt: str, to_lower: bool = False, rm_punctuation: bo
         if rm_punctuation:
             origin_text = list(map(lambda word_to_clear: cleared(word_to_clear), origin_text))
 
-        minshift, maxshift = shift
+        min_shift, max_shift = shift
         try:
-            randint(minshift, maxshift)
+            randint(min_shift, max_shift)
         except ValueError:
             print(
-                "Invalid `minshift` and `maxshift` values were passed. They are reset to the default values 1 and 200 respectively."
+                "Invalid `min_shift` and `max_shift` values were passed. They are reset to the default values 1 and 200 respectively."
             )
-            minshift, maxshift = 1, 200
+            min_shift, max_shift = 1, 200
 
         decryptor.write(f"{action_plus}\n{action_minus}\n")
 
         for word in origin_text:
             for symbol in word:
-                key, action = randint(minshift, maxshift), randint(0, 1)
+                key, action = randint(min_shift, max_shift), randint(0, 1)
                 decryptor.write(str(key) + ' ')
                 if action:
                     result.write(choice(action_plus) + str(ord(symbol) + key) + ' ')
