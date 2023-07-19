@@ -2,12 +2,12 @@
 
 # 0 - Encryption mode.
 # 1 - Decryption mode.
-mode: int = ...
+mode: int = 0
 
 
 # Cryptograph-----------------------------------------------------------------
 
-file_to_encrypt: str = '...'  # Name of (path to) the file you want to encrypt.
+file_to_encrypt: str = 'sample.txt'  # Name of (path to) the file you want to encrypt.
 
 to_lower: bool = False  # Should the text be converted to lowercase?
 rm_punctuation: bool = False  # Should the punctuation characters be deleted from the edges of the words?
