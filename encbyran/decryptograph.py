@@ -1,3 +1,6 @@
+# The `decryptograph` algorithm is deprecated.
+# TODO: Update `decryptograph`.
+
 import re
 
 

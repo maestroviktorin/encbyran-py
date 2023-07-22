@@ -12,6 +12,7 @@ file_to_encrypt: str = 'sample.txt'  # Name of (path to) the file you want to en
 to_lower: bool = False  # Should the text be converted to lowercase?
 rm_punctuation: bool = False  # Should the punctuation characters be deleted from the edges of the words?
 shift: tuple[int, int] = (1, 200)  # Range between `min` and `max` random shift of the ASCII letter number.
+encrypted_new_line_length = (1, 15)  # Range of length of a pseudo-word representing a new line.
 
 
 # Decryptograph---------------------------------------------------------------
