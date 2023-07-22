@@ -2,26 +2,40 @@
 
 # 0 - Encryption mode.
 # 1 - Decryption mode.
-mode: int = 0
+mode: int = ...
 
 
 # Cryptograph-----------------------------------------------------------------
 
-file_to_encrypt: str = 'sample.txt'  # Name of (path to) the file you want to encrypt.
+# Name of (path to) the file you want to encrypt.
+file_to_encrypt: str = '...'
 
-to_lower: bool = False  # Should the text be converted to lowercase?
-rm_punctuation: bool = False  # Should the punctuation characters be deleted from the edges of the words?
-shift: tuple[int, int] = (1, 200)  # Range between `min` and `max` random shift of the ASCII letter number.
-encrypted_new_line_length = (1, 15)  # Range of length of a pseudo-word representing a new line.
+# Should the text be converted to lowercase?
+to_lower: bool = False
+
+# Should the punctuation characters be deleted from the edges of the words?
+rm_punctuation: bool = False
+
+# Range between `min` and `max` random shift of the ASCII letter number.
+shift: tuple[int, int] = (1, 200)
+
+# Range of length of a pseudo-word representing a new line.
+encrypted_new_line_length: tuple[int, int] = (1, 15)
 
 
 # Decryptograph---------------------------------------------------------------
 
-file_to_decrypt: str = '...'  # Name of (path to) the file you want to decrypt.
-decryptor: str = '...'  # Name of (path to) the decryptor for the encrypted file.
+# Name of (path to) the file you want to decrypt.
+file_to_decrypt: str = '...'
+
+# Name of (path to) the decryptor for the encrypted file.
+decryptor: str = '...'
 
 
 # Actions---------------------------------------------------------------------
 
-length: tuple[int, int] = (1, 20)  # Range of random length of a random combination of letters.
-amount_of_words: int = 20  # APPROXIMATE amount of the `plus` and `minus` words.
+# Range of random length of a random combination of letters.
+length: tuple[int, int] = (1, 20)
+
+# APPROXIMATE amount of the `plus` and `minus` words.
+amount_of_words: int = 20

@@ -1,4 +1,6 @@
-from .actions import *
+from random import randint, choice
+
+from .actions import action_plus, action_minus, new_line
 from .cleared import cleared
 
 
@@ -41,7 +43,7 @@ def cryptograph(file_to_encrypt: str,
             )
             min_shift, max_shift = 1, 200
 
-        decryptor.write(f"{action_plus}\n{action_minus}\n{new_line}\n")
+        decryptor.write(f"{action_plus}\n{action_minus}\n")
 
         for line in origin_lines:
             _encrypt_line(line, encrypted, decryptor,
