@@ -1,7 +1,5 @@
 # :game_die::closed_lock_with_key:Encryption by Random
 
-[<img height="35" src=".\assets\telegram.png" title="Telegram Channel" width="35"/>](https://viktorintech.t.me)
-
 The presented open source software is used to encrypt and decrypt text files using the special method.
 
 The encryption method is based on the Caesar Cipher.  
@@ -44,3 +42,6 @@ All details for further maintenance and modernization of the code,
 as far as possible, are provided in the `__doc__` of functions and modules.
 ***
 If you have any proposals or questions, be sure to ping [me](https://github.com/maestroviktorin).
+
+[<img height="35" src=".\assets\telegram.png" title="Telegram" width="35"/>](https://maestroviktorin.t.me)
+[<img height="35" src=".\assets\discord.png" title="Discord" width="35"/>](https://discordapp.com/users/531105058864103435/)
