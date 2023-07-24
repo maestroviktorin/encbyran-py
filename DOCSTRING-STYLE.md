@@ -2,7 +2,7 @@
 
 ## Motivation
 
-This document is created to describe the unified `__doc__` style used in repository `encryption-by-random`.
+This document is created to describe the unified `__doc__` style used in the `encryption-by-random` repository.
 
 ## Style
 
@@ -58,10 +58,12 @@ class Cat:
 ```
 
 ```py
-used_parameters: set[tuple] = set()
+Number = int | float
+
+used_parameters: set[tuple[Number, Number]] = set()
 
 
-def sum_of(a: int | float, b: int | float) -> int | float:
+def sum_of(a: Number, b: Number) -> Number:
     """
     ### Parameters
 
