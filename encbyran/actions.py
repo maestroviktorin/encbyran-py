@@ -1,8 +1,3 @@
-"""
-These are technical lists of random letter combinations
-that define `plus` or `minus` operation applied to the ASCII letter number.
-"""
-
 from random import choice, randint
 from string import ascii_letters
 
@@ -10,6 +5,11 @@ from config import length, amount_of_words
 
 
 def get_random_set() -> set[str]:
+    """
+    ### Returns
+
+    Set of randomly generated letter combinations.
+    """
     return {''.join(word) for word in
             (tuple(choice(ascii_letters) for _ in range(randint(*length))) for _ in range(amount_of_words))}
 
