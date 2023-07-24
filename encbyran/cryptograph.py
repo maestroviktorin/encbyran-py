@@ -1,4 +1,5 @@
 from random import randint, choice
+from typing import TextIO
 
 from .actions import action_plus, action_minus, new_line
 from .cleared import cleared
@@ -10,14 +11,18 @@ def cryptograph(file_to_encrypt: str,
                 shift: tuple[int, int] = (1, 200),
                 encrypted_new_line_length: tuple[int, int] = (1, 15)) -> None:
     """
-    :param file_to_encrypt: Name of (path to) the file to be encrypted.
-    :param to_lower: The need to convert uppercase letters to lowercase.
-    :param rm_punctuation: The need to remove punctuation characters on the edges of the words.
-    :param shift: Tuple of 2 integers with the range of random shift of ASCII-numbers.
+    ### Parameters
+
+    `file_to_encrypt`: Name of (path to) the file to be encrypted.\n
+    `to_lower`: The need to convert uppercase letters to lowercase.\n
+    `rm_punctuation`: The need to remove punctuation characters on the edges of the words.\n
+    `shift`: Tuple of 2 integers with the range of random shift of ASCII-numbers.
+
+    ### Actions
 
     Creates 2 files in the current directory:
-    1) Encrypted text in the .txt format with one encrypted word on each line;
-    2) Decryptor with keys that can be used in Decryptograph function ONLY for received encrypted file.
+    1. Encrypted text in the `.txt` format with one encrypted word on each line\n
+    2. Decryptor with keys that can be used in Decryptograph function ONLY for received encrypted file.
     """
     with open(file_to_encrypt, 'rt', encoding="utf-8") as file, \
             open(f"encrypted-{file_to_encrypt.strip('.txt')}.txt", 'w+', encoding="utf-8") as encrypted, \
@@ -51,10 +56,23 @@ def cryptograph(file_to_encrypt: str,
 
 
 def _encrypt_line(line: tuple[str, ...],
-                  encrypted: str,
-                  decryptor: str,
+                  encrypted: TextIO,
+                  decryptor: TextIO,
                   shift: tuple[int, int],
                   encrypted_new_line_length: tuple[int, int]) -> None:
+    """
+    ### Parameters
+
+    `line`: Line of the file represented as a tuple of words.\n
+    `encrypted`: File in which encrypted data is being written.\n
+    `decryptor`: File in which decryption keys are being written.\n
+    `shift`: Range between minimum and maximum random shift of the ASCII letter number.\n
+    `encrypted_new_line_length`: Range between minimum and maximum random length of an encrypted new line in so-called units.
+
+    ### Actions
+
+    Calls `_encrypt_word` for each word in `line` and encrypts switch to a new line.
+    """
     for word in line:
         _encrypt_word(word, encrypted, decryptor, shift)
 
@@ -66,10 +84,21 @@ def _encrypt_line(line: tuple[str, ...],
 
 
 def _encrypt_word(word: str,
-                  encrypted: str,
-                  decryptor: str,
+                  encrypted: TextIO,
+                  decryptor: TextIO,
                   shift: tuple[int, int]) -> None:
+    """
+    ### Parameters
 
+    `word`: Single word to be encrypted.\n
+    `encrypted`: File in which encrypted data is being written.\n
+    `decryptor`: File in which decryption keys are being written.\n
+    `shift`: Range between minimum and maximum random shift of the ASCII letter number.
+
+    ### Actions
+
+    Encrypts the given `word`.
+    """
     for char in word:
         key, action = randint(*shift), randint(0, 1)
         decryptor.write(str(key) + ' ')
@@ -86,11 +115,33 @@ def _encrypt_word(word: str,
 
 
 def _get_encrypted_new_line(encrypted_new_line_length: tuple[int, int], shift: tuple[int, int]) -> str:
+    """
+    ### Parameters
+
+    `encrypted_new_line_length`: Range between minimum and maximum random length of an encrypted new line in so-called units.\n
+    `shift`: Range between minimum and maximum random shift of a phantom ASCII letter number.
+
+    ### Returns
+
+    Random notation of an encrypted new line as `{special letter combination}{randomly changed ASCII-number of a phantom letter}`
+    random number of times which is in the `encrypted_new_line_length` range.
+
+    E.g. `ljnTfghHJGjn-42 oiiTjjGD1337 mzlff89` consisting of 3 units (so-called encrypted letters) in which no unit represents a real letter in the file being encrypting.
+    """
     new_line_units_amount = randint(*encrypted_new_line_length)
     return ' '.join(_get_encrypted_new_line_unit(shift) for _ in range(new_line_units_amount))
 
 
 def _get_encrypted_new_line_unit(shift: tuple[int, int]) -> str:
+    """
+    ### Parameters
+
+    `shift`: Range between minimum and maximum random shift of a phantom ASCII letter number.
+
+    ### Returns
+
+    Randomly generated unit of an encrypted new line.
+    """
     _shift = randint(*shift)
     _shift = _shift if randint(0, 1) else -_shift
     return (new_line_notation := choice(tuple(new_line))) + str(ord(new_line_notation[randint(0, len(new_line_notation) - 1)]) + _shift)

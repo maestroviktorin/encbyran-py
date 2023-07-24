@@ -3,8 +3,12 @@ import re
 
 def decryptograph(file_to_decrypt: str, decryptor: str) -> None:
     """
-    :param file_to_decrypt: Name of (path to) the file to be decrypted according to unique standards.
-    :param decryptor: Name of (path to) the file with decryption keys.
+    ### Parameters
+
+    `file_to_decrypt`: Name of (path to) the file to be decrypted according to unique standards.\n
+    `decryptor`: Name of (path to) the file with decryption keys.
+
+    ### Actions
 
     Creates a file decrypted using the provided keys.
     """

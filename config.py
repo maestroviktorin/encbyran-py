@@ -16,7 +16,7 @@ to_lower: bool = False
 # Should the punctuation characters be deleted from the edges of the words?
 rm_punctuation: bool = False
 
-# Range between `min` and `max` random shift of the ASCII letter number.
+# Range between minimum and maximum random shift of the ASCII letter number.
 shift: tuple[int, int] = (1, 200)
 
 # Range of length of a pseudo-word representing a new line.
